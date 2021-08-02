@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id='link'>link</button>
+    <button id='send'>sen d</button>
+    <pre id='pre'></pre>
+    <script>
+       const link =  document.querySelector('#link')
+       const send =  document.querySelector('#send')
+       const pre =  document.querySelector('#pre')
+        let ws = null
+        link.addEventListener('click',()=>{
+            ws = new WebSocket('ws://localhost:9999')
+            ws.onopen = ()=>{
+                console.log('连接成功111')
+            }
+            ws.onclose = ()=>{}
+
+            ws.onmessage = (msg)=>{
+                console.log(msg)
+                // console.log(JSON.parse(msg.data))
+                pre.innerHTML = msg.data
+            }
+        })
+        send.onclick = ()=>{
+            let data = {
+                action:"fullscreen",
+                socketType:"fullscreen",
+                chartName:"trend",
+                value:true
+            }
+            let data1 = {
+                action:"getData",
+                socketType:"trendData",
+                chartName:"trend",
+                value:''
+            }
+            ws.send(JSON.stringify(data))
+        }
+    </script>
+</body>
+</html>

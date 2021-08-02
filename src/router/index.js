@@ -1,27 +1,29 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
+// import SellerPage from 'pages/SellerPage';
+// import TrendPage from 'pages/TrendPage';
+// import MapPage from 'pages/MapPage';
+// import RankPage from 'pages/RankPage';
+// import HotPage from 'pages/HotPage';
+// import StockPage from 'pages/StockPage';
+import ScreenPage from 'pages/ScreenPage';
 
 Vue.use(VueRouter);
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
+  { path: '/', redirect: '/screenPage' },
+  { path: '/screenPage', name: 'ScreenPage', component: ScreenPage },
+  // { path: '/sellerPage', name: 'SellerPage', component: SellerPage },
+  // { path: '/trendPage', name: 'TrendPage', component: TrendPage },
+  // { path: '/mapPage', name: 'MapPage', component: MapPage },
+  // { path: '/rankPage', name: 'RankPage', component: RankPage },
+  // { path: '/hotPage', name: 'HotPage', component: HotPage },
+  // { path: '/stockPage', name: 'StockPage', component: StockPage },
 ];
 
 const router = new VueRouter({
   routes,
+  mode: 'history',
 });
 
 export default router;

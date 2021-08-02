@@ -5,10 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "upload":"scp -rv ./dist/* txy:/home/ubuntu/visual/example01"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
+    "axios": "^0.21.1",
+    "core-js": "3",
+    "echarts": "^5.1.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
