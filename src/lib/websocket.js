@@ -29,7 +29,11 @@ export default class SocketService {
     if (!window.WebSocket) {
       console.log('您的浏览器不支持webSocket');
     }
-    this.ws = new WebSocket('ws://http://visual.mrsun123.xyz/ws');
+    let socketUrl = `ws:${window.location.host}/socket`;
+    // eslint-disable-next-line
+    console.log(socketUrl)
+    socketUrl = socketUrl.replace('https', 'ws').replace('http', 'ws');
+    this.ws = new WebSocket(socketUrl);
     // 连接成功事件
     this.ws.addEventListener('open', this.handleOpen.bind(this));
     // 连接失败

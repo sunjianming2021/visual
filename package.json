@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "upload":"scp -rv ./dist/* txy:/home/ubuntu/visual/example01"
+    "upload":"scp -rv ./dist/* txy:/home/ubuntu/visual/example01/frontend"
   },
   "dependencies": {
     "axios": "^0.21.1",

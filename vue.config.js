@@ -5,6 +5,14 @@ module.exports = {
       '/api':{
         target:'http://localhost:8888',
         changeOrigin: true
+      },
+      '/socket':{
+        target:"http://visual.mrsun123.xyz/socket",
+        changeOrigin:true,
+        ws:true,
+        pathReWrite:{
+          '^/socket':''
+        }
       }
     }
   },
